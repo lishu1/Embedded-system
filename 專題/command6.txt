@@ -1,0 +1,5 @@
+snmpwalk -v 2c -c narouser 140.113.249.17 
+snmpwalk -v 2c -c narouser 140.113.249.17 .1.3.6.1.2.1.25.3.2.1.3
+snmpset -v 2c -c narouser 140.113.249.17 1.3.6.1.2.1.1.4/5.0 s PENTURA
+
+

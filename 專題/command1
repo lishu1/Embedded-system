@@ -1,0 +1,9 @@
+#!/bin/bash
+now=$(date +"%Y%m%d-%T")	#current time
+count=$(cat count.txt)		#photo's number
+rm count.txt
+touch count.txt				
+echo $((count+1)) >> count.txt	#write next number into count.txt
+fswebcam -d   /dev/video0  -r 1280x720 web/img/photos/$count-${now//:/}.jpg	#take photo
+sendEmail -f db0116327@gmail.com -t db0116327@gmail.com -u "Warning" -m "Someone is in the house. http://192.168.0.65/project/web/"$curdate -a /var/www/project/web/img/photos/$count-${now//:/}.jpg -s smtp.gmail.com -o tls=yes -xu db0116327@gmail.com -xp shlab1qaz2wsx
+#sendmail with photo via gmail
